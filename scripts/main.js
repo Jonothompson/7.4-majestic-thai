@@ -1,8 +1,12 @@
+
+import router from './router'
+
 (function(){
   'use strict';
 
   $(document).ready(function(){
-    $('#appContainer').html(JST.menu());
-    $('#appContainer').append(JST.checkoutbox());
+    Backbone.history.start();
+//    $('#appContainer').html(JST.menu());
+//    $('#appContainer').append(JST.checkoutbox());
   });
 })();
