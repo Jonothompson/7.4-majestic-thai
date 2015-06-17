@@ -19,3 +19,32 @@ body {
   background-color: $base-background-color;
   color: $base-font-color;
 }
+
+
+
+.header {
+  @include span-columns(12);
+  background-image: url('../../images/ss-thailand-bond-island.jpg');
+  height: 400px;
+  width: 100%;
+  
+  .logo {
+    margin-left: 475px;
+    height: 400px;
+  }
+}
+
+.menu {
+  @include span-columns(5);
+  @include shift(2);
+  margin-top: 50px;
+}
+
+.checkoutBox {
+  @include span-columns(2);
+  @include shift(1);
+  border: 1px black solid;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 50px;
+}

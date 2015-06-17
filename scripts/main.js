@@ -2,6 +2,7 @@
   'use strict';
 
   $(document).ready(function(){
-    $('body').prepend(JST.application());
+    $('#appContainer').html(JST.menu());
+    $('#appContainer').append(JST.checkoutbox());
   });
 })();
