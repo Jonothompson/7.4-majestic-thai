@@ -6,7 +6,5 @@ import router from './router'
 
   $(document).ready(function(){
     Backbone.history.start();
-//    $('#appContainer').html(JST.menu());
-//    $('#appContainer').append(JST.checkoutbox());
   });
 })();

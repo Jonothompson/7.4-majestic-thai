@@ -1,2 +1,2 @@
-	    $('#appContainer').html(JST.menu());
-		$('#appContainer').append(JST.checkoutbox());
+$('#appContainer').html(JST.menu());
+		

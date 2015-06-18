@@ -1,0 +1,1 @@
+$('#appContainer').append(JST.checkoutbox());
