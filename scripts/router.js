@@ -7,14 +7,19 @@ var Router = Backbone.Router.extend({
 	},
 	
 	initialize: function(){
-		
+		this.indexMenuView();
+		this.indexCheckoutView();
+	},	
+
+	indexMenuView: function () {
+		this.menuView = new IndexMenuView();
+		$('#appContainer').html(this.menuView.el);	
 	},
-	
-//	index: function() {
-//		var menuView = new IndexMenuView();
-//	    $('#appContainer').html(JST.menu());
-//		$('#appContainer').append(JST.checkoutbox());
-//	}	
+
+	indexCheckoutView: function () {
+		this.checkoutView = new IndexCheckoutView();
+		$('#appContainer').append(this.checkoutView.el);
+	},
 });
 
 var router = new Router();
