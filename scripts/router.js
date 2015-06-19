@@ -4,32 +4,21 @@ import {MenuCollection} from './models/menuCollection';
 
 var Router = Backbone.Router.extend({
 	routes: {
-		'': 'index',
+		'': 'index'
 	},
 	
-	initialize: function(){
-		this.indexMenuView();
-		this.indexCheckoutView();
-	},	
-
-	indexMenuView: function () {
-
-		this.menuCollection = new MenuCollection();
-		this.menuCollection.fetch().then(function() {
+	index: function(){
+		var menuCollection = new MenuCollection();
+		menuCollection.fetch().then(function() {
 			console.log(this);
-			this.menuView = new IndexMenuView({collection: this.menuCollection});
-			$('#appContainer').html(this.menuView.el);	
-
-			
-		}.bind(this));
-	},
-
-	indexCheckoutView: function () {
-		this.checkoutView = new IndexCheckoutView();
-		$('#checkoutBoxContainer').append(this.checkoutView.el);
-	},
+			var menuView = new IndexMenuView({collection: menuCollection});
+			$('#menu').html(menuView.el);	
+				
+			var checkoutView = new IndexCheckoutView();
+			$('#checkoutBoxContainer').append(checkoutView.el);
+	});
 	
-	
+	},
 	
 });
 

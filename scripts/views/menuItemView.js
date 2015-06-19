@@ -1,6 +1,15 @@
 export default Backbone.View.extend ({
 	template: JST.menuItem,
 	
+	events: {
+		'click .checkoutButton' : 'show'
+	},
+	
+	show: function(e) {
+		e.preventDefault();
+		console.log(this);	
+	},
+	
 	initialize: function(){
 		this.render();	
 	},
