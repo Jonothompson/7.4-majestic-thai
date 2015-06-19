@@ -1,5 +1,6 @@
 import IndexMenuView from './views/indexMenuView';
 import IndexCheckoutView from './views/indexCheckoutView';
+import {MenuCollection} from './models/menuCollection';
 
 var Router = Backbone.Router.extend({
 	routes: {
@@ -12,14 +13,24 @@ var Router = Backbone.Router.extend({
 	},	
 
 	indexMenuView: function () {
-		this.menuView = new IndexMenuView();
-		$('#appContainer').html(this.menuView.el);	
+
+		this.menuCollection = new MenuCollection();
+		this.menuCollection.fetch().then(function() {
+			console.log(this);
+			this.menuView = new IndexMenuView({collection: this.menuCollection});
+			$('#appContainer').html(this.menuView.el);	
+
+			
+		}.bind(this));
 	},
 
 	indexCheckoutView: function () {
 		this.checkoutView = new IndexCheckoutView();
-		$('#appContainer').append(this.checkoutView.el);
+		$('#checkoutBoxContainer').append(this.checkoutView.el);
 	},
+	
+	
+	
 });
 
 var router = new Router();

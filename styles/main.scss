@@ -34,13 +34,13 @@ body {
   }
 }
 
-.menu {
+.menuContainer {
   @include span-columns(5);
   @include shift(2);
   margin-top: 50px;
 }
 
-.checkoutBox {
+.checkoutBoxContainer {
   @include span-columns(2);
   @include shift(1);
   border: 1px black solid;
