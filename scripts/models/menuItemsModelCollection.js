@@ -1,7 +1,7 @@
-import {MenuCollection} from './task';
+import {MenuCollection} from './menuCollection';
 
 var Project = Backbone.Model.extend({
-  idAttribute: 'menuItemId',
+  idAttribute: 'objectId',
 
   defaults: {
     name: ""
@@ -9,15 +9,15 @@ var Project = Backbone.Model.extend({
 
   initialize: function(){
     // Create a task collection to keep track of our tasks
-    this.menuItems = new MenuCollection();
+    this.tasks = new MenuCollection();
 
     // Trigger all tasks events on myself
-    this.listenTo(this.menuItems, 'all', this.trigger.bind(this));
+    this.listenTo(this.tasks, 'all', this.trigger.bind(this));
   },
 
   // Proxy the add method to the underlying task collection
   add: function(models, options){
-    return this.menuItems.add(models, options);
+    return this.tasks.add(models, options);
   },
 
   // Proxy the remove method to the underlying task collection
@@ -27,7 +27,7 @@ var Project = Backbone.Model.extend({
 
   toJSON: function(){
     return _.extend({}, this.attributes, {
-      tasks: this.menuItems.map(function(task){
+      tasks: this.tasks.map(function(task){
           return {
             "__type": "Pointer",
             "className": "Task",
@@ -39,9 +39,9 @@ var Project = Backbone.Model.extend({
 
 });
 
-var ProjectCollection = Backbone.Collection.extend({
-  model: Project,
-//  url: "https://api.parse.com/1/classes/Project"
+var MenuCollection = Backbone.Collection.extend({
+  model: menuCollections,
+  url: "https://api.parse.com/1/classes/menuCollections"
 });
 
-export default {Project, ProjectCollection};
+export default {MenuItemModel, MenuItemModelCollection};
