@@ -1,6 +1,7 @@
 import IndexMenuView from './views/indexMenuView';
 import IndexCheckoutView from './views/indexCheckoutView';
 import {MenuCollection} from './models/menuCollection';
+import ajaxConfig from '/ajax-config';
 
 var Router = Backbone.Router.extend({
 	routes: {

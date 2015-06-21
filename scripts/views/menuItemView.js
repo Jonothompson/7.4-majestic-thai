@@ -7,7 +7,8 @@ export default Backbone.View.extend ({
 	
 	show: function(e) {
 		e.preventDefault();
-		console.log(this);	
+		this.model.set({'selected': 1 + (this.model.get('selected') || 0)});
+		console.log(this.model.attributes);	
 	},
 	
 	initialize: function(){
