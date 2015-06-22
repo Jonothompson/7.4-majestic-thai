@@ -1,3 +1,5 @@
+
+
 export default Backbone.View.extend ({
 	template: JST.menuItem,
 	
@@ -6,9 +8,12 @@ export default Backbone.View.extend ({
 	},
 	
 	show: function(e) {
-		e.preventDefault();
 		this.model.set({'selected': 1 + (this.model.get('selected') || 0)});
-		console.log(this.model.attributes);	
+		cart.add(this.model.collection.filter(function(item) {
+			return(item.get('selected') || false);
+		}));
+		this.render();
+		console.log(cart);
 	},
 	
 	initialize: function(){
@@ -16,6 +21,6 @@ export default Backbone.View.extend ({
 	},
 	
 	render: function() {
-		this.$el.append(this.template(this.model.toJSON()));
+		this.$el.html(this.template(this.model.toJSON()));
 	}
 });

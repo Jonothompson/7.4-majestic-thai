@@ -2,6 +2,7 @@ import IndexMenuView from './views/indexMenuView';
 import IndexCheckoutView from './views/indexCheckoutView';
 import {MenuCollection} from './models/menuCollection';
 import ajaxConfig from '/ajax-config';
+import {CartCollection} from './models/cartCollection';
 
 var Router = Backbone.Router.extend({
 	routes: {
@@ -15,7 +16,7 @@ var Router = Backbone.Router.extend({
 			var menuView = new IndexMenuView({collection: menuCollection});
 			$('#menu').html(menuView.el);	
 				
-			var checkoutView = new IndexCheckoutView();
+			var checkoutView = new IndexCheckoutView({collection: cart});
 			$('#checkoutBoxContainer').append(checkoutView.el);
 	});
 	
