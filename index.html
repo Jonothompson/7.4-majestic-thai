@@ -5,20 +5,29 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title></title>
+    <title>Majestic Thai</title>
 
     <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
 
     <link rel="stylesheet" href="dist/styles/main.css">
-
+  	
+    <script> var cart = [];</script>
     <script src="bower_components/modernizr/modernizr.js"></script>
   </head>
   <body>
+    
+    <section class="header">
+      <img class="logo" src="../../images/logo600x500.png" alt="hip-logo">
+    </section>
+      
+    <section id="menu" class="menuContainer"></section>
+    <section id="checkoutBoxContainer" class="checkoutBoxContainer"></section>
 
   <!-- Third Party Scripts -->
   <script src="bower_components/commonjs-require/commonjs-require.js"></script>
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/backbone/backbone.js"></script>
   <script src="bower_components/handlebars/handlebars.js"></script>
 
   <!-- Application Scripts -->
